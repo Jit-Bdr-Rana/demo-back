@@ -9,6 +9,11 @@ export class RoleController {
   async getAll(req: Request, res: Response) {
     //    const getAllRoles=await Role.sequelize?.query(`select * from roles`)
     const getAllRoles = await Role.findAll();
+    res.send({
+      data: getAllRoles,
+      message: "Role has been fetched successfully.",
+      status: true,
+    });
   }
 
   async saveRole(req: Request, res: Response) {

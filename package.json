@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch src --ext ts --ignore dist --exec \"ts-node --require tsconfig-paths/register src/index.ts\""
-
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.19",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "pg": "^8.16.2",
     "pg-hstore": "^2.3.4",
