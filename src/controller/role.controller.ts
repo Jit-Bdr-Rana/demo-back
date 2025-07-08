@@ -23,19 +23,30 @@ export class RoleController {
     newRole.description = request.description;
     newRole.save();
 
-    res.send(newRole);
+    res.send({
+      message: "Role has been created successfully.",
+      status: true,
+    });
   }
 
   async getRoleById(req: Request, res: Response) {
     const roleId = req.params.id;
     const getRoleById = await Role.findByPk(roleId);
-    res.send(getRoleById);
+    res.send({
+      data: getRoleById,
+      message: "Role has been fetched successfully.",
+      status: true,
+    });
   }
 
   async deleteRoleById(req: Request, res: Response) {
     const roleId = req.params.id;
     const deleteRoleById = await Role.destroy({ where: { id: roleId } });
-    res.send(deleteRoleById);
+    res.send({
+      data: deleteRoleById,
+      message: "Role has been deleted successfully.",
+      status: true,
+    });
   }
 
   async updateRoleById(req: Request, res: Response) {
@@ -45,7 +56,10 @@ export class RoleController {
       { name: request.name, description: request.description },
       { where: { id: roleId } }
     );
-    res.send(updateRoleById);
+    res.send({
+      message: "Role has been updated successfully.",
+      status: true,
+    });
   }
 }
 
