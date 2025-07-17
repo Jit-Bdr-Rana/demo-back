@@ -1,7 +1,7 @@
 <!-- swagger -->
 
 npm install swagger-ui-express swagger-jsdoc
-npm install --save-dev @types/swagger-ui-express @types/swagger-ui-express
+npm install --save-dev @types/swagger-jsdoc @types/swagger-ui-express
 
 /\*\*
 
