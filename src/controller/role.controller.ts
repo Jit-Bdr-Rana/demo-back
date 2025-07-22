@@ -1,3 +1,4 @@
+import { NotFoundException } from "@exception/notfoundexception";
 import { Role } from "@models/role.model";
 import { Request, Response } from "express";
 
