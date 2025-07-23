@@ -1,4 +1,5 @@
 import { Role } from "@models/role.model";
+import { NotFoundEXception } from "exception/NotFountException";
 import { Request, Response } from "express";
 
 interface IRoleRequest {
@@ -9,6 +10,7 @@ export class RoleController {
   async getAll(req: Request, res: Response) {
     //    const getAllRoles=await Role.sequelize?.query(`select * from roles`)
     const getAllRoles = await Role.findAll();
+    // throw new Error("error");
     res.send({
       data: getAllRoles,
       message: "Role has been fetched successfully.",
@@ -32,6 +34,9 @@ export class RoleController {
   async getRoleById(req: Request, res: Response) {
     const roleId = req.params.id;
     const getRoleById = await Role.findByPk(roleId);
+    if (!getRoleById) {
+      throw new NotFoundEXception("Role not found");
+    }
     res.send({
       data: getRoleById,
       message: "Role has been fetched successfully.",

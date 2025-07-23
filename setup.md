@@ -1,7 +1,7 @@
 <!-- swagger -->
 
 npm install swagger-ui-express swagger-jsdoc
-npm install --save-dev @types/swagger-jsdoc @types/swagger-ui-express
+npm install --save-dev @types/swagger-ui-express @types/swagger-ui-express
 
 /\*\*
 
@@ -11,13 +11,6 @@ npm install --save-dev @types/swagger-jsdoc @types/swagger-ui-express
 -     summary: summary
 -     tags:
 -       - Users
--     parameters:
--       - in: path
--         name: id
--         required: true
--         schema:
--           type: integer
--         description: ID of the user to retrieve
 -     requestBody:
 -       required: true
 -       content:
@@ -54,3 +47,6 @@ npm install --save-dev @types/swagger-jsdoc @types/swagger-ui-express
 -               name: Jit Rana
 -               email: jit@example.com
   \*/
+
+npm install multer
+npm install --save-dev @types/multer

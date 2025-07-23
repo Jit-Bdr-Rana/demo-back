@@ -11,7 +11,8 @@
 "@config/*": ["config/*"],
 "@controller/*":["controller/*"],
 "@routes/*":["routes/*"],
-"@utils/*":["utils/*"]
+"@utils/*":["utils/*"],
+"@exception/*":["exception/*"]
 },
 "strict": true,
 "esModuleInterop": true,
