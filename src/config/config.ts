@@ -1,3 +1,7 @@
+import { Category } from "@models/category.model";
+import { DocumentModel } from "@models/document.model";
+import { PostImage } from "@models/post-image.model";
+import { Post } from "@models/post.model";
 import { Role } from "@models/role.model";
 import { User } from "@models/user.model";
 import { UserDetails } from "@models/userDetails.model";
@@ -11,7 +15,7 @@ const sequelize = new Sequelize({
   password: "jitjit",
   database: "demo",
   logging: true,
-  models: [Role, User, UserDetails],
+  models: [Role, User, UserDetails, DocumentModel, Post, Category, PostImage],
 });
 
 export default sequelize;

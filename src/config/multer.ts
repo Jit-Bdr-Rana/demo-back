@@ -1,6 +1,7 @@
-import multer from "multer";
+import multer, { Multer } from "multer";
 import path from "path";
 import * as fs from "fs";
+import { Request } from "express";
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
     const destination = path.join(__dirname, "../public/uploads");
@@ -17,4 +18,17 @@ const storage = multer.diskStorage({
   },
 });
 
-export const upload = multer({ storage: storage });
+const fileFilter = (req: Request, file: Express.Multer.File, callback: any) => {
+  const validMimetype = ["image/jpg", "image/png", "image/jpeg"];
+
+  if (validMimetype.includes(file.mimetype)) {
+    callback(null, true);
+  } else {
+    callback(new Error("file format not support"));
+  }
+};
+
+export const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+});

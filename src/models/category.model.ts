@@ -4,8 +4,14 @@ import {
   DataType,
   Model,
   PrimaryKey,
+  Table,
 } from "sequelize-typescript";
 
+@Table({
+  tableName: "categories",
+  createdAt: "created_at",
+  updatedAt: "updated_at",
+})
 export class Category extends Model<Category> {
   @AutoIncrement
   @PrimaryKey

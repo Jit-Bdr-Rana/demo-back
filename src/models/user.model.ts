@@ -9,7 +9,7 @@ import {
 import { UserDetails } from "./userDetails.model";
 
 @Table({
-  tableName: "user",
+  tableName: "users",
   createdAt: "created_at",
   updatedAt: "updated_at",
 })
