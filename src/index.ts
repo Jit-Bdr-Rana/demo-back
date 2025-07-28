@@ -9,16 +9,18 @@ import { exceptionHandler } from "@config/exception-filter";
 import { upload } from "@config/multer";
 import { postRouter } from "@routes/post.route";
 import postController from "@controller/post.controller";
+import { categoryRouter } from "@routes/category.route";
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/user", userRouter);
 app.use("/api/role", roleRouter);
+app.use("/api/category", categoryRouter);
 app.use("/docs", swaggerUIExpress.serve, swaggerUIExpress.setup(swaggerDocs));
 app.use("/api/posts", postRouter);
 
-app.post("/api/upload", postController.savePost);
+// app.post("/api/upload", postController.savePost);
 app.use(exceptionHandler);
 
 sequelize.sync({ alter: true }).then(() => {

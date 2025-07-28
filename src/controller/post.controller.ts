@@ -34,7 +34,11 @@ class Postcontroller {
 
     console.log(files);
 
-    res.send([]);
+    res.send({
+      message: "Post has been saved successfully",
+      status: true,
+      data: post,
+    });
   }
 }
 

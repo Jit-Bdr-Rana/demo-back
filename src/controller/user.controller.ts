@@ -3,7 +3,15 @@ import { Request, Response } from "express";
 import * as bcrypt from "bcrypt";
 import { UserDetails } from "@models/userDetails.model";
 class UserController {
-  async getUser(req: Request, res: Response) {
+  async getAllUser(req: Request, res: Response) {
+    const user = await User.findAll();
+    res.send({
+      data: user,
+      message: "User has been fetched successfully",
+      status: true,
+    });
+  }
+  async saveUser(req: Request, res: Response) {
     //save user
     const payload = req.body;
 
