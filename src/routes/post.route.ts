@@ -4,6 +4,6 @@ import { Router } from "express";
 
 const router = Router();
 
-router.post("/", upload.array("image", 10), postController.savePost);
+router.post("/", upload.array("images", 10), postController.savePost);
 
 export { router as postRouter };

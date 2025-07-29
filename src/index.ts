@@ -10,6 +10,7 @@ import { upload } from "@config/multer";
 import { postRouter } from "@routes/post.route";
 import postController from "@controller/post.controller";
 import { categoryRouter } from "@routes/category.route";
+import path from "path";
 const app = express();
 
 app.use(cors());
@@ -19,7 +20,7 @@ app.use("/api/role", roleRouter);
 app.use("/api/category", categoryRouter);
 app.use("/docs", swaggerUIExpress.serve, swaggerUIExpress.setup(swaggerDocs));
 app.use("/api/posts", postRouter);
-
+app.use(express.static(path.join(__dirname, "public")));
 // app.post("/api/upload", postController.savePost);
 app.use(exceptionHandler);
 
