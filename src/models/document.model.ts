@@ -13,7 +13,11 @@ import {
 })
 export class DocumentModel extends Model<DocumentModel> {
   @PrimaryKey
-  @Column({ field: "doc_guid", type: DataType.UUID })
+  @Column({
+    field: "doc_guid",
+    type: DataType.UUID,
+    defaultValue: DataType.UUIDV4,
+  })
   docGuid?: string;
 
   @Column
@@ -21,6 +25,9 @@ export class DocumentModel extends Model<DocumentModel> {
 
   @Column({ field: "original_name" })
   originalName!: string;
+
+  @Column({ field: "file_name" })
+  fileName!: string;
 
   @Column({ field: "size" })
   size!: number;

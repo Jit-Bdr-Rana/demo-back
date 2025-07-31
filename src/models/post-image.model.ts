@@ -27,5 +27,5 @@ export class PostImage extends Model<PostImage> {
 
   @ForeignKey(() => DocumentModel)
   @Column({ field: "document_id", allowNull: false })
-  documentId?: number;
+  documentId?: string;
 }
