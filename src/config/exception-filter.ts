@@ -7,8 +7,8 @@ export const exceptionHandler = (
   next: NextFunction
 ) => {
   console.log(error);
-  res.status(500).send({
-    message: "internal server error",
+  res.status(error?.statusCode || 500).json({
+    message: error?.message || "internal server error",
     status: false,
   });
 };

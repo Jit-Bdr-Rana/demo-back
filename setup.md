@@ -50,3 +50,7 @@ npm install --save-dev @types/swagger-ui-express @types/swagger-ui-express
 
 npm install multer
 npm install --save-dev @types/multer
+
+npm install jsonwebtoken
+npm install @types/jsonwebtoken
+npm install class-validator class-transformer

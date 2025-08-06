@@ -12,7 +12,9 @@
 "@controller/*":["controller/*"],
 "@routes/*":["routes/*"],
 "@utils/*":["utils/*"],
-"@exception/*":["exception/*"]
+"@exception/*":["exception/*"],
+"@middleware/*":["middleware/*"],
+"@dto/*":["dto/*"],
 },
 "strict": true,
 "esModuleInterop": true,
