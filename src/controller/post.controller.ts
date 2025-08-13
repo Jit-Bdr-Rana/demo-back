@@ -60,15 +60,29 @@ class Postcontroller {
     const path = "http://localhost:5000/uploads/";
     const findAllPost = await Post.sequelize?.query(
       `
-    select p.title,p.slug,p.description,c."name" as categoryName,u.email as userEmail, u.username,json_agg(concat(:path,d.file_name))   from posts p
-inner join categories c  on c.id =p.category_id
-inner join users u   on u.id=p.posted_by 
-left join post_image pi on pi.post_id =p.id
-left join documents d  on d.doc_guid =pi.document_id::uuid
-group by 1,2,3,4,5,6;
+   SELECT 
+    p.title,
+    p.slug,
+    p.description,
+    c."name" AS categoryName,
+    u.email AS userEmail,
+    u.username,
+    json_agg(concat(:path, d.file_name)) FILTER (WHERE d.file_name IS NOT NULL) AS images
+FROM posts p
+INNER JOIN categories c ON c.id = p.category_id
+INNER JOIN users u ON u.id = p.posted_by 
+LEFT JOIN post_image pi ON pi.post_id = p.id
+LEFT JOIN documents d ON d.doc_guid = pi.document_id::uuid
+GROUP BY 1,2,3,4,5,6;
+
       `,
       { type: QueryTypes.SELECT, replacements: { path } }
     );
+    response.send({
+      message: "Posts retrieved successfully",
+      status: true,
+      data: findAllPost,
+    });
   }
 }
 

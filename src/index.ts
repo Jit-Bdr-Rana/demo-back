@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(exceptionHandler);
 sequelize.sync({ alter: true }).then(() => {
   app.listen(5000, () => {
-    console.log("htttp://localhost:5000");
+    console.log("http://localhost:5000");
     console.log(swaggerDocs);
   });
 });

@@ -7,11 +7,11 @@ export const jwtMiddleware = (
   next: NextFunction
 ) => {
   console.log("--------------------------------------------------", req.path);
-  const publicPath = ["/api/auth/login"];
+  const publicPath = ["/api/auth/login", "/uploads/"];
   console.log(req.path);
-  if (publicPath.includes(req.path)) {
+  if (publicPath.some((path) => req.path.startsWith(path))) {
     console.log("bypass");
-    next();
+    return next();
   } else {
     const token = req.headers.authorization?.split(" ")[1] as string;
     if (!token) {
